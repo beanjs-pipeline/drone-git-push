@@ -63,7 +63,8 @@ func (p *Plugin) Exec() error {
 
 	log.Println("Record changes to the repository")
 	if err := p.run(gitCommit); err != nil {
-		return err
+		log.Println("There are no changes to commit.")
+		return nil
 	}
 
 	log.Println("Update remote refs along with associated objects")
